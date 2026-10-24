@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+body { @apply bg-paper font-sans text-ink antialiased; }
+
+:focus-visible { outline: 2px solid #2a56d6; outline-offset: 2px; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-signal text-white hover:bg-[#1f44b0]; }
+  .btn-quiet { @apply btn border border-line bg-white text-ink hover:bg-paper; }
+  .input { @apply w-full rounded-md border border-line bg-white px-3 py-2 text-sm placeholder:text-muted/70; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border border-line bg-white px-3 py-1 text-sm; }
+  .chip-on { @apply border-ink bg-ink text-white; }
+}
+
+/* Gemma's markdown output */
+.md h2 { @apply mt-4 mb-1 font-display text-base font-extrabold; }
+.md h2:first-child { @apply mt-0; }
+.md p { @apply mb-2 leading-relaxed; }
+.md ul { @apply mb-2 list-disc pl-5; }
+.md ol { @apply mb-2 list-decimal pl-5; }
+.md li { @apply mb-1 leading-relaxed; }
+.md code { @apply rounded bg-paper px-1 font-mono text-[0.85em]; }
+.md pre { @apply mb-2 overflow-x-auto rounded-md bg-ink p-3 font-mono text-xs text-white; }
+.md pre code { @apply bg-transparent p-0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+
+/* ===== OpenPath Dark Dashboard Theme ===== */
+
+:root {
+  color-scheme: dark;
+  --op-bg: #0b0a10;
+  --op-panel: #13121c;
+  --op-panel-hover: #1b1927;
+  --op-border: #302d3d;
+  --op-text: #f5f3fc;
+  --op-muted: #a09bb2;
+  --op-purple: #9b83ff;
+  --op-purple-bright: #8061f5;
+  --op-green: #71d6ad;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--op-bg) !important;
+  color: var(--op-text) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #8061f555;
+}
+
+:focus-visible {
+  outline: 2px solid var(--op-purple);
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  background-color: var(--op-panel);
+  color: var(--op-text);
+  border-color: var(--op-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--op-muted);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #a38bff, #7655e9) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 11px;
+  box-shadow: 0 5px 22px #8061f52b;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.btn-quiet {
+  background: var(--op-panel);
+  color: var(--op-text);
+  border: 1px solid var(--op-border);
+  border-radius: 11px;
+}
+
+.chip {
+  background: var(--op-panel);
+  color: #c6c1d8;
+  border: 1px solid var(--op-border);
+  border-radius: 9px;
+}
+
+.chip-on {
+  background: #8a70f52b;
+  border-color: var(--op-purple);
+  color: #c4b7ff;
+}
+
+.md code {
+  background: var(--op-panel-hover);
+  color: #c7baff;
+}
+
+.md pre {
+  background: #08070c;
+  border: 1px solid var(--op-border);
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
