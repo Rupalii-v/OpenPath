@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+body { @apply bg-paper font-sans text-ink antialiased; }
+
+:focus-visible { outline: 2px solid #2a56d6; outline-offset: 2px; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-signal text-white hover:bg-[#1f44b0]; }
+  .btn-quiet { @apply btn border border-line bg-white text-ink hover:bg-paper; }
+  .input { @apply w-full rounded-md border border-line bg-white px-3 py-2 text-sm placeholder:text-muted/70; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border border-line bg-white px-3 py-1 text-sm; }
+  .chip-on { @apply border-ink bg-ink text-white; }
+}
+
+/* Gemma's markdown output */
+.md h2 { @apply mt-4 mb-1 font-display text-base font-extrabold; }
+.md h2:first-child { @apply mt-0; }
+.md p { @apply mb-2 leading-relaxed; }
+.md ul { @apply mb-2 list-disc pl-5; }
+.md ol { @apply mb-2 list-decimal pl-5; }
+.md li { @apply mb-1 leading-relaxed; }
+.md code { @apply rounded bg-paper px-1 font-mono text-[0.85em]; }
+.md pre { @apply mb-2 overflow-x-auto rounded-md bg-ink p-3 font-mono text-xs text-white; }
+.md pre code { @apply bg-transparent p-0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
